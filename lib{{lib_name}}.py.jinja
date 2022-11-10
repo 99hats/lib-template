@@ -1,0 +1,18 @@
+from targ import CLI
+import toml
+import json
+from addict import Dict
+from pathlib import Path
+
+
+toml_file = Path.cwd() / "{{lib_name}}.toml"
+settings = Dict(toml.load(toml_file))
+
+
+def ping():
+    print("pong")
+
+if __name__ == "__main__":
+    cli = CLI()
+    cli.register(ping)
+    cli.run()
