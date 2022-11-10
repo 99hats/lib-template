@@ -11,8 +11,14 @@ settings = Dict(toml.load(toml_file))
 
 def ping():
     print("pong")
+    from pprint import pprint
+    pprint(settings)
+
+def pdb():
+    import pdb; pdb.set_trace()
 
 if __name__ == "__main__":
     cli = CLI()
     cli.register(ping)
+    cli.register(pdb)
     cli.run()
