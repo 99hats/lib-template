@@ -3,7 +3,9 @@ import toml
 import json
 from addict import Dict
 from pathlib import Path
+from joblib import Memory
 
+memory = Memory("/tmp/{{lib_name}}")
 
 toml_file = Path.cwd() / "{{lib_name}}.toml"
 settings = Dict(toml.load(toml_file))

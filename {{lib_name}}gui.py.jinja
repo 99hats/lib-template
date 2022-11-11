@@ -1,0 +1,26 @@
+import flet
+from flet import IconButton, Page, Row, TextField, icons
+from addict import Dict
+from pathlib import Path
+import toml
+
+settings = Dict(toml.load(Path.cwd() / "{{lib_name}}gui.toml"))
+
+
+def main(page: Page):
+    page.title = settings.title
+    page.vertical_alignment = "center"
+
+    hello_world = TextField(value="Hello World", text_align="right", width=100)
+
+    page.add(
+        Row(
+            [
+                hello_world
+            ],
+            alignment="center",
+        )
+    )
+
+# flet.app(target=main)
+flet.app(target=main, host="0.0.0.0", view=flet.WEB_BROWSER, port=5098, web_renderer="html")
