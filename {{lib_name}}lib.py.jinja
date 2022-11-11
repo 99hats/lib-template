@@ -7,7 +7,7 @@ from joblib import Memory
 
 memory = Memory("/tmp/{{lib_name}}")
 
-toml_file = Path.cwd() / "{{lib_name}}.toml"
+toml_file = Path.cwd() / "{{lib_name}}lib.toml"
 settings = Dict(toml.load(toml_file))
 
 
